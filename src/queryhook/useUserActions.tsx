@@ -1,20 +1,22 @@
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { fetchUser, postUser } from "../service/UserService";
+import { UserType } from "../types/userType";
 
 export const useUserActions = () => {
-  const fetchUser = async () => {
-    const { data } = await axios.get(
-      "https://jsonplaceholder.typicode.com/users"
-    );
-    return data;
-  };
+  const queryClient=useQueryClient()
   const useGetAllUser = () => {
     return useQuery({
-      queryKey: ["getuser"],
+      queryKey: ["user"],
       queryFn: fetchUser,
     });
   };
+const addUser=useMutation({
+  mutationFn:(user:UserType)=>postUser(user),
+  onSuccess:()=>{
+    queryClient.invalidateQueries({queryKey:"user"})
+  }
 
-  return { useGetAllUser };
+})
+  return { useGetAllUser ,addUser};
 };
 

@@ -1,5 +1,5 @@
-import AppBarComponent from "./components/Appbar/AppBarComponent";
-import ContainerComponent from "./components/ContainerComponent/ContainerComponent";
+import AppBarComponent from "./components/Appbar";
+import ContainerComponent from "./components/ContainerComponent";
 
 function App() {
   return (
