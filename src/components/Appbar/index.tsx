@@ -1,10 +1,10 @@
 import { AppBar, Toolbar, Typography } from "@mui/material";
-
+import "./Appbar.styles.scss"
 const AppBarComponent = () => {
   return <div>
-     <AppBar position="sticky">
+     <AppBar position="sticky" className="appBar">
       <Toolbar>
-        <Typography variant="h6">
+        <Typography className="appTitle"  variant="h6">
           Məlumatlar
         </Typography>
       </Toolbar>
