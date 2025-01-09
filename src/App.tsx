@@ -1,11 +1,11 @@
-import AppBarComponent from "./components/Appbar";
-import ContainerComponent from "./components/ContainerComponent";
+import { Container } from "./layouts/container";
+import { Header } from "./layouts/header";
 
 function App() {
   return (
     <div>
-      <AppBarComponent />
-      <ContainerComponent/>
+      <Header/>
+      <Container/>
     </div>
   );
 }
